@@ -38,7 +38,13 @@ async function userRegisterController(req, res) {
         token
     })
 
-    await emailService.sendRegistrationEmail(user.email, user.name)
+    const emailInfo = await emailService.sendRegistrationEmail(user.email, user.name)
+
+    if (emailInfo) {
+        console.log(`Registration email sent successfully to ${user.email}`)
+    } else {
+        console.log(`Registration email was not sent to ${user.email}`)
+    }
 }
 
 /**
