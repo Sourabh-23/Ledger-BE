@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 
 
 const userSchema = new mongoose.Schema({
@@ -14,15 +14,14 @@ const userSchema = new mongoose.Schema({
     name:{
         type:String,
         required:[true,"Name is required"]
-    }.required,
+    },
     password:{
         type:String,
         required:[true,"Password is required"],
         minlength:[6,"Password must be at least 6 characters long"],
         select:false
-    },
-    timestamps:true       
-})
+    }      
+}, { timestamps:true })
 
 userSchema.pre('save', async function(next){
     if(!this.isModified('password')){
