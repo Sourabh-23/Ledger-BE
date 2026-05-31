@@ -1,11 +1,10 @@
-require('dotenv').config()
-const connectDB = require('./config/db') // Connect to the database
-const app = require('./src/app')
+require("dotenv").config()
 
-const PORT = process.env.PORT || 3000
+const app = require("./src/app")
+const connectToDB = require("./src/config/db")
 
-connectDB()
+connectToDB()
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+app.listen(3000, () => {
+    console.log("Server is running on port 3000")
 })

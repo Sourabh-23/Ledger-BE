@@ -1,33 +1,24 @@
 {
-  "name": "ledger-be",
+  "name": "backend-ledger",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon server.js",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sourabh-23/Ledger-BE.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Sourabh-23/Ledger-BE/issues"
-  },
-  "homepage": "https://github.com/Sourabh-23/Ledger-BE#readme",
-  "description": "",
   "dependencies": {
-    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
-    "dotenv": "^17.4.2",
+    "cookieparser": "^0.1.0",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "js": "^0.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^8.24.0",
-    "nodemailer": "^8.0.10"
+    "mongoose": "^9.1.5",
+    "nodemailer": "^7.0.12"
   }
 }

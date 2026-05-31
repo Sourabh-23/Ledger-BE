@@ -1,26 +1,31 @@
-const  express = require('express')
-const cookies = require('cookie-parser')
-require('dotenv').config()
-const authRoutes = require('./routes/auth.routes')
+const express = require("express")
+const cookieParser = require("cookie-parser")
+
+
 
 const app = express()
-app.use(cookies())
+
 
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(express.text({type:'*/*'}))
-app.use((req,res,next) => {
-    if(typeof req.body === 'string' && req.body.trim()){
-        try {
-            req.body = JSON.parse(req.body)
-        } catch (error) {
-            return res.status(400).json({message:"Invalid JSON body"})
-        }
-    }
-    next()
+app.use(cookieParser())
+
+/**
+ * - Routes required
+ */
+const authRouter = require("./routes/auth.routes")
+const accountRouter = require("./routes/account.routes")
+const transactionRoutes = require("./routes/transaction.routes")
+
+/**
+ * - Use Routes
+ */
+
+app.get("/", (req, res) => {
+    res.send("Ledger Service is up and running")
 })
-app.use("/api/auth",authRoutes)
 
-
+app.use("/api/auth", authRouter)
+app.use("/api/accounts", accountRouter)
+app.use("/api/transactions", transactionRoutes)
 
 module.exports = app
